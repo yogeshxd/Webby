@@ -2,6 +2,12 @@
 A simple python programme that can detect changes on a given url for specified time interval.
 
 # Requirements:
+ 1. requests
+ 
+ 2. bs4
+ 
+ 3.urllib
+ 
 
 # This Script Has Two Modes:
 1. Infinte Check Mode - Checks For Changes Infinitly.
