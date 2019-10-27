@@ -6,7 +6,7 @@ A simple python programme that can detect changes on a given url for specified t
  
  2. bs4
  
- 3.urllib
+ 3. urllib
  
 
 # This Script Has Two Modes:
