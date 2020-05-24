@@ -1,6 +1,6 @@
 import os
 import time
-from datetime import date
+from datetime import datetime
 try:
     import requests
     import urllib.request
