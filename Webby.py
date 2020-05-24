@@ -1,5 +1,6 @@
 import os
 import time
+from datetime import date
 try:
     import requests
     import urllib.request
@@ -12,33 +13,33 @@ except:
 
 def scraper(url,t):
     try:
-        os.remove('RAW_1.txt')
-        os.remove('RAW_2.txt')
+        os.remove('RAW_1')
+        os.remove('RAW_2')
         print('Cleared Chached Data')
     except:
         print('Cleared Chached Data')
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
-    file = open('RAW_1.txt','wb')
+    file = open('RAW_1','wb')
     file.write(str(soup.findAll()).encode("utf-8"))
     file.close()
     print('Fetched')
     time.sleep(t)
-    file2 = open('RAW_2.txt','wb')
+    file2 = open('RAW_2','wb')
     file2.write(str(soup.findAll()).encode("utf-8"))
     file2.close()
     print('Started Comparing')
-    f1 = open('RAW_1.txt', 'rb')
+    f1 = open('RAW_1', 'rb')
     a = str(f1)
     c = a.split()
     f1.close()
-    f2 = open('RAW_2.txt','rb')
+    f2 = open('RAW_2','rb')
     b = str(f2)
     d = b.split()
     f2.close()
-    with open("RAW_1.txt",'rb') as f:
+    with open("RAW_1",'rb') as f:
       lines = f.read()
-    with open("RAW_2.txt",'rb') as f:
+    with open("RAW_2",'rb') as f:
       lines2 = f.read()
     l1 = []
     l2 = []
@@ -53,8 +54,8 @@ def scraper(url,t):
     print('Compared')
     if l1!=l2:
         return yes
-    os.remove('RAW_1.txt')
-    os.remove('RAW_2.txt')
+    os.remove('RAW_1')
+    os.remove('RAW_2')
     time.sleep(1)
 
 #main_block
@@ -67,6 +68,12 @@ if ask == 'y' or ask == 'Y' or ask == 'Yes':
     while True:
         if scraper(url,t)=='Yes':
             print(content)
+            now = datetime.now()
+            dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+            with open("Logs.txt",'a') as log:
+                log.write("A change has been detected at",url,"on",dt_string)
+                log.close()
+            print("A log has been created in Logs file.")
         else:
             print('No Changes Detected')
         
@@ -74,6 +81,12 @@ else:
     print("Default Time Interval Is 10 Sec")
     if scraper(url,10)=='Yes':
             print(content)
+            now = datetime.now()
+            dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+            with open("Logs.txt",'a') as log:
+                log.write("A change has been detected at",url,"on",dt_string)
+                log.close()
+            print("A log has been created in Logs file.")
             a = input('Hit Enter To Exit')
     else:
         print('No Changes Detected')
