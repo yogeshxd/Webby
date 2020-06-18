@@ -18,4 +18,5 @@ A simple python programme that can detect changes on a given url for specified t
 
 # ChangeLogs:
 0.2 - Added loging system
+
 0.1 - Initial release
