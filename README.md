@@ -1,6 +1,8 @@
 # Webby
 A simple python programme that can detect changes on a given url for specified time interval.
 
+# Updates Discontinued
+
 # Requirements:
  1. requests
  
