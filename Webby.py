@@ -83,7 +83,7 @@ else:
             print(content)
             now = datetime.now()
             dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-            with open("Logs.txt",'a') as log:
+            with open("Logs",'a') as log:
                 log.write("A change has been detected at",url,"on",dt_string)
                 log.close()
             print("A log has been created in Logs file.")
