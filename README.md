@@ -16,7 +16,7 @@ A simple python programme that can detect changes on a given url for specified t
 
 2. Single Check Mode - Checks For Changes Once. 
 
-# For Any Complaints Or Compliments Write A Mail To "guptayogesh138@gmail.com"
+# For Any Complaints Or Compliments dm on [Insta](https://www.instagram.com/yogesh_.xd/).
 
 # ChangeLogs:
 0.2 - Added loging system
